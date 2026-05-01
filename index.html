@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>soguk</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      background: #0a0a0a;
+    }
+
+    body {
+      color: #eaeaea;
+      text-align: center;
+    }
+
+    h1 {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 300;
+      letter-spacing: 2px;
+      font-size: 28px;
+      z-index: 10;
+    }
+
+    .gallery {
+      margin-top: 100px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .gallery img:hover {
+      opacity: 0.8;
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>soguk</h1>
+
+  <div class="gallery">
+    <img src="images/foto1.png" onclick="openModal(this.src)">
+    <img src="images/foto2.png" onclick="openModal(this.src)">
+    <img src="images/foto3.png" onclick="openModal(this.src)">
+    <img src="images/foto4.png" onclick="openModal(this.src)">
+    <img src="images/foto5.png" onclick="openModal(this.src)">
+    <img src="images/foto6.png" onclick="openModal(this.src)">
+    <img src="images/foto7.png" onclick="openModal(this.src)">
+    <img src="images/foto8.png" onclick="openModal(this.src)">
+    <img src="images/foto9.png" onclick="openModal(this.src)">
+    <img src="images/foto10.png" onclick="openModal(this.src)">
+    <img src="images/foto11.jpg" onclick="openModal(this.src)">
+    <img src="images/foto12.png" onclick="openModal(this.src)">
+    <img src="images/foto13.png" onclick="openModal(this.src)">
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal" onclick="closeModal()">
+    <img id="modalImg">
+  </div>
+
+  <script>
+    function openModal(src) {
+      const modal = document.getElementById('modal');
+      const modalImg = document.getElementById('modalImg');
+      modal.style.display = 'flex';
+      modalImg.src = src;
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
